@@ -12,6 +12,7 @@
     margin: 0;
     padding: 0;
 
+
     li.tag-list-item {
       text-align: center;
       padding: 6px 10px;
@@ -19,6 +20,17 @@
       border-top: none;
       cursor: pointer;
       color: #5a5a5a;
+
+      &.dismiss-modal-button {
+        text-align: center;
+        padding: 15px 0px;
+        border-bottom: 1px solid #e6e6e6;
+
+        &:hover {
+          background-color: #c7c7c7;
+          color: #fff;
+        }
+      }
 
       .item-label {
         font-weight: bold;

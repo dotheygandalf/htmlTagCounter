@@ -63,9 +63,15 @@ angular.module("partials/tagsModal/tagsModal.tpl.html", []).run(["$templateCache
   $templateCache.put("partials/tagsModal/tagsModal.tpl.html",
     "<div class=\"tag-list\">\n" +
     "  <ul>\n" +
+    "    <li ng-click=\"$dismiss()\" class=\"tag-list-item dismiss-modal-button\" ng-if=\"tags.length > 10\">\n" +
+    "      Close\n" +
+    "    </li>\n" +
     "    <li ng-repeat=\"item in tags\" class=\"tag-list-item\" ng-click=\"$close(item.tag)\" ng-class=\"{ selected: isTagSelected(item.tag) }\">\n" +
     "      <div class=\"item-label\">{{ item.tag | formatTag }}</div>\n" +
     "      <div class=\"item-value\">{{ item.count }} elements</div>\n" +
+    "    </li>\n" +
+    "    <li ng-click=\"$dismiss()\" class=\"tag-list-item dismiss-modal-button\">\n" +
+    "      Close\n" +
     "    </li>\n" +
     "  </ul>\n" +
     "</div>");

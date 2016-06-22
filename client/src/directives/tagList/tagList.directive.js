@@ -20,6 +20,9 @@
         resolve: {
           tags: function () {
             return $scope.tags;
+          },
+          selectedTag: function() {
+            return $scope.selectedTag;
           }
         }
       });
