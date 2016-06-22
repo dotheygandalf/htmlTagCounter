@@ -5,17 +5,29 @@
     <base href="/">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
+
+    <style>
+      .CodeMirror {
+        height: calc(100% - 200px);
+      }
+    </style>
   </head>
   <body ng-app="htmlTagCounterApp">
     <div class="container" ng-controller="mainCtrl">
       <h1>Hello World!</h1>
 
-      <ul>
-        <li ng-repeat="tag in tags | orderBy: '-count'">
-          <span>{{ tag.tag }}</span> - 
-          <span>{{ tag.count }}</span>
+
+      <ul style="list-style:none;">
+        <li ng-repeat="tag in tags | orderBy: '-count'" style="display: inline-block; text-align: center; padding: 5px 10px;min-width:50px;">
+          <div>{{ tag.tag }}</div>
+          <div>{{ tag.count }}</div>
         </li>
       </ul>
+
+      <div ui-codemirror ng-model="html" ui-codemirror-opts="editorOptions"></div>
+
     </div>
 
 
@@ -23,6 +35,12 @@
     <script class="application-dependency" src="/bower_components/angular/angular.js"></script>
     <script class="application-dependency" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script class="application-dependency" src="/bower_components/lodash/dist/lodash.js"></script>
+    <script class="application-dependency" src="/bower_components/codemirror/lib/codemirror.js"></script>
+    <script class="application-dependency" src="/bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+
+    <script class="application-dependency" src="/bower_components/codemirror/mode/xml/xml.js"></script>
+    <script class="application-dependency" src="/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script class="application-dependency" src="/bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 
     <script class="application-src" src="./client/src/app.js"></script>
   </body>

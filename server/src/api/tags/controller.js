@@ -1,7 +1,11 @@
 var htmlTagCount = require('../../htmlTagCount');
 
 exports.index = function(req, res) {
-  htmlTagCount.getTags('http://api.jquery.com/jquery.each/').then(function(tags) {
+  var url = 'http://arstechnica.com/';
+
+  // url = '<html><body><ul><li></li></ul></body></html>';
+
+  htmlTagCount.getTags(url).then(function(tags) {
     res.json(tags);
   });
 };

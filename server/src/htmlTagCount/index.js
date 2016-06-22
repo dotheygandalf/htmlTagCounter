@@ -1,5 +1,6 @@
 var jsdom = require("jsdom");
 var q = require('q');
+var beautify = require('js-beautify').html;
 
 module.exports = {
   getTags: getTags
@@ -12,9 +13,21 @@ function getTags(url) {
   jsdom.env(
     url,
     function (err, window) {
+      if(err) {
+        return deferred.reject();
+      }
+
       var $ = require('jquery')(window);
-      getChildNodes($, 'html');
-      deferred.resolve(elements);
+      getChildNodes($, window.document.documentElement);
+      return deferred.resolve({
+        elements: elements,
+        html: beautify(window.document.documentElement.outerHTML, {
+          'indent_size': 2,
+          'preserve-newlines': true,
+          'max-preserve-newlines': 1,
+          'indent-inner-html': true
+        })
+      });
     }
   );
 
