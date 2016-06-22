@@ -12,7 +12,8 @@
     "jquery": "^3.0.0",
     "js-beautify": "^1.6.3",
     "jsdom": "9.2.1",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "grunt": "1.0.0",

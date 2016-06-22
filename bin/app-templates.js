@@ -32,7 +32,7 @@ angular.module("directives/tagCountViewer/tagCountViewer.tpl.html", []).run(["$t
     "\n" +
     "    <div ng-if=\"error && !isLoading\">\n" +
     "      <h1>Woops</h1>\n" +
-    "      <h4>It looks like there was a problem retrieving the reqested page.</h4>\n" +
+    "      <h4>{{ error.message }}</h4>\n" +
     "    </div>\n" +
     "\n" +
     "    <div ng-if=\"isLoading\">\n" +

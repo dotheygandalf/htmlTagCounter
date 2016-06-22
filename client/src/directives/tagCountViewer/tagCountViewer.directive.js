@@ -28,7 +28,7 @@
         }, function(error) {
           delete $scope.tags;
           delete $scope.html;
-          $scope.error = 'BAD_REQUEST';
+          $scope.error = error.data;
           deferred.reject();
         })['finally'](function() {
           $scope.isLoading = false;

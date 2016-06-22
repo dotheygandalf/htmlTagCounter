@@ -7,12 +7,12 @@ module.exports = {
   getTags: getTags
 };
 
-function getTags(url) {
+function getTags(html) {
   var deferred = q.defer();
 
   var elements = {};
   jsdom.env(
-    url,
+    html,
     function (err, window) {
       if(err) {
         return deferred.reject();
@@ -41,10 +41,13 @@ function getTags(url) {
         return 0;
       }).reverse();
 
+      var html = window.document.documentElement.outerHTML;
+
+      window.close();
 
       return deferred.resolve({
         elements: elements,
-        html: beautify(window.document.documentElement.outerHTML, {
+        html: beautify(html, {
           'indent_size': 2,
           'preserve-newlines': true,
           'max-preserve-newlines': 1,

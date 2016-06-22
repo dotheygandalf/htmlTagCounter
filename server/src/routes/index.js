@@ -4,6 +4,10 @@ module.exports = function(app) {
 
   // Insert routes below
   app.use('/api/v1/tags', require('../api/tags'));
+  app.get('/foo', function(req, res) {
+    res.header("Content-Type", "text/html");
+    res.send('foo');
+  })
 
   // All undefined asset or api routes should return a 404
   // app.route('/:url(api|auth|components|app|bower_components|assets)/*')

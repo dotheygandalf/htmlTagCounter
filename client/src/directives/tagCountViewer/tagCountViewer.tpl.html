@@ -21,7 +21,7 @@
 
     <div ng-if="error && !isLoading">
       <h1>Woops</h1>
-      <h4>It looks like there was a problem retrieving the reqested page.</h4>
+      <h4>{{ error.message }}</h4>
     </div>
 
     <div ng-if="isLoading">
