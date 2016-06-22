@@ -1,5 +1,8 @@
-var htmlTagCount = require('./src/htmlTagCount/htmlTagCount');
+var express = require('express');
+var app = express();
 
-htmlTagCount.getTags('http://api.jquery.com/jquery.each/').then(function(tags) {
-  console.log(tags);
+require('./server/src/routes')(app);
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });

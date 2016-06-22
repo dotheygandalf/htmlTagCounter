@@ -1,4 +1,4 @@
-var htmlTagCount = require('./htmlTagCount');
+var htmlTagCount = require('./');
 
 describe("htmlTagCount", function () {
   var tags;
