@@ -46,6 +46,7 @@
 .tag-list {
   height: calc(100% - 80px);
   overflow: auto;
+  padding-right: 0;
 }
 .tag-list ul {
   list-style: none;
@@ -54,10 +55,15 @@
 }
 .tag-list ul li.tag-list-item {
   text-align: center;
-  padding: 4px 10px;
+  padding: 6px 10px;
   border: 1px solid #e6e6e6;
   border-top: none;
   cursor: pointer;
+  color: #5a5a5a;
+}
+.tag-list ul li.tag-list-item .item-label {
+  font-weight: bold;
+  margin-bottom: 2px;
 }
 .tag-list ul li.tag-list-item:first-child {
   border-top: 1px solid #e6e6e6;

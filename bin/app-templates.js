@@ -49,8 +49,8 @@ angular.module("directives/tagList/tagList.tpl.html", []).run(["$templateCache",
     "<div class=\"tag-list\">\n" +
     "  <ul>\n" +
     "    <li ng-repeat=\"item in tags\" class=\"tag-list-item\" ng-click=\"selectTag(item.tag)\" ng-class=\"{ selected: isTagSelected(item.tag) }\">\n" +
-    "      <div>{{ item.tag | formatTag }}</div>\n" +
-    "      <div>{{ item.count }}</div>\n" +
+    "      <div class=\"item-label\">{{ item.tag | formatTag }}</div>\n" +
+    "      <div class=\"item-value\">{{ item.count }} elements</div>\n" +
     "    </li>\n" +
     "  </ul>\n" +
     "</div>");

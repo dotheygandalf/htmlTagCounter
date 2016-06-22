@@ -1,6 +1,7 @@
 .tag-list {
   height: ~"calc(100% - 80px)";
   overflow: auto;
+  padding-right: 0;
 
   ul {
     list-style: none;
@@ -9,10 +10,16 @@
 
     li.tag-list-item {
       text-align: center;
-      padding: 4px 10px;
+      padding: 6px 10px;
       border: 1px solid #e6e6e6;
       border-top: none;
       cursor: pointer;
+      color: #5a5a5a;
+
+      .item-label {
+        font-weight: bold;
+        margin-bottom: 2px;
+      }
 
       &:first-child {
         border-top: 1px solid #e6e6e6;
