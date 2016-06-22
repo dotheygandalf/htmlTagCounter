@@ -1,5 +1,9 @@
 .code-viewer {
   padding: 0;
+  height: 100%;
+}
+.code-viewer [ui-codemirror] {
+  height: 100%;
 }
 .code-viewer .CodeMirror {
   height: calc(100% - 80px);

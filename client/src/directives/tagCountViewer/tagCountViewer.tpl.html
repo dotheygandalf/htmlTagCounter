@@ -13,13 +13,13 @@
     </div>
   </div>
 
-  <div class="row">
-    <div ng-if="!error && !isLoading">
+  <div class="row" style="height: 100%; margin-top: 10px;">
+    <div ng-if="!error && !isLoading" style="height: 100%;">
       <tag-list tags="tags" ng-if="tags" class="col-lg-3 col-sm-4 col-xs-12 col-lg-push-9 col-sm-push-8"></tag-list>
       <code-viewer content="html" class="col-lg-9 col-sm-8 col-xs-12 col-lg-pull-3 col-sm-pull-4"></code-viewer>
     </div>
 
-    <div ng-if="error && !isLoading">
+    <div ng-if="error && !isLoading" style="height: 100%;">
       <h1>Woops</h1>
       <h4>{{ error.message }}</h4>
     </div>

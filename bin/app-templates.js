@@ -24,13 +24,13 @@ angular.module("directives/tagCountViewer/tagCountViewer.tpl.html", []).run(["$t
     "    </div>\n" +
     "  </div>\n" +
     "\n" +
-    "  <div class=\"row\">\n" +
-    "    <div ng-if=\"!error && !isLoading\">\n" +
+    "  <div class=\"row\" style=\"height: 100%; margin-top: 10px\">\n" +
+    "    <div ng-if=\"!error && !isLoading\" style=\"height: 100%\">\n" +
     "      <tag-list tags=\"tags\" ng-if=\"tags\" class=\"col-lg-3 col-sm-4 col-xs-12 col-lg-push-9 col-sm-push-8\"></tag-list>\n" +
     "      <code-viewer content=\"html\" class=\"col-lg-9 col-sm-8 col-xs-12 col-lg-pull-3 col-sm-pull-4\"></code-viewer>\n" +
     "    </div>\n" +
     "\n" +
-    "    <div ng-if=\"error && !isLoading\">\n" +
+    "    <div ng-if=\"error && !isLoading\" style=\"height: 100%\">\n" +
     "      <h1>Woops</h1>\n" +
     "      <h4>{{ error.message }}</h4>\n" +
     "    </div>\n" +
