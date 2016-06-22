@@ -9,7 +9,7 @@ angular.module("directives/codeViewer/codeViewer.tpl.html", []).run(["$templateC
 
 angular.module("directives/tagCountViewer/tagCountViewer.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("directives/tagCountViewer/tagCountViewer.tpl.html",
-    "<div class=\"tag-count-viewer container\">\n" +
+    "<div class=\"tag-count-viewer\">\n" +
     "  <div class=\"row\">\n" +
     "    <div class=\"col-lg-12\">\n" +
     "      <form novalidate name=\"urlForm\" ng-submit=\"go()\">\n" +
@@ -26,13 +26,13 @@ angular.module("directives/tagCountViewer/tagCountViewer.tpl.html", []).run(["$t
     "\n" +
     "  <div class=\"row\">\n" +
     "    <div ng-if=\"!error && !isLoading\">\n" +
-    "      <tag-list tags=\"tags\" ng-if=\"tags\" class=\"col-lg-2 col-sm-4 col-xs-12 col-lg-push-10 col-sm-push-8\"></tag-list>\n" +
-    "      <code-viewer content=\"html\" class=\"col-lg-10 col-sm-8 col-xs-12 col-lg-pull-2 col-sm-pull-4\"></code-viewer>\n" +
+    "      <tag-list tags=\"tags\" ng-if=\"tags\" class=\"col-lg-3 col-sm-4 col-xs-12 col-lg-push-9 col-sm-push-8\"></tag-list>\n" +
+    "      <code-viewer content=\"html\" class=\"col-lg-9 col-sm-8 col-xs-12 col-lg-pull-3 col-sm-pull-4\"></code-viewer>\n" +
     "    </div>\n" +
     "\n" +
     "    <div ng-if=\"error && !isLoading\">\n" +
     "      <h1>Woops</h1>\n" +
-    "      <h4>It looks like there was a problem retrieving your reqested page.</h4>\n" +
+    "      <h4>It looks like there was a problem retrieving the reqested page.</h4>\n" +
     "    </div>\n" +
     "\n" +
     "    <div ng-if=\"isLoading\">\n" +

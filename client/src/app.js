@@ -8,7 +8,7 @@
     'ui.bootstrap'
   ])
 
-  .config(function($urlRouterProvider, $locationProvider, $urlMatcherFactoryProvider, $stateProvider) {
+  .config(function($urlRouterProvider, $locationProvider, $urlMatcherFactoryProvider, $stateProvider, $uibTooltipProvider) {
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
     $urlMatcherFactoryProvider.strictMode(true);

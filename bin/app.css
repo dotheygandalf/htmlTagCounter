@@ -17,6 +17,7 @@
 .tag-count-viewer {
   height: calc(100% - 80px);
   overflow: hidden;
+  padding: 0 20px;
 }
 .tag-count-viewer form input.ng-dirty.ng-invalid,
 .tag-count-viewer form input.ng-dirty.ng-invalid-url,

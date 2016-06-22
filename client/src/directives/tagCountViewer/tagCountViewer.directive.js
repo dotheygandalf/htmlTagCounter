@@ -29,12 +29,9 @@
           delete $scope.tags;
           delete $scope.html;
           $scope.error = 'BAD_REQUEST';
-          $scope.urlForm.url.$setValidity('badRequest', false);
           deferred.reject();
         })['finally'](function() {
-          $timeout(function() {
-            $scope.isLoading = false;
-          }, 300);
+          $scope.isLoading = false;
         });
 
         return deferred.promise;
