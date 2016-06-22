@@ -1,18 +1,20 @@
 var jsdom = require("jsdom");
-
+var q = require('q');
 
 module.exports = {
   getTags: getTags
 };
 
 function getTags(url) {
+  var deferred = q.defer();
+
   var elements = {};
   jsdom.env(
     url,
     function (err, window) {
       var $ = require('jquery')(window);
       getChildNodes($, 'html');
-      console.log(elements);
+      deferred.resolve(elements);
     }
   );
 
@@ -37,4 +39,6 @@ function getTags(url) {
       }
     });
   }
+
+  return deferred.promise;
 }
