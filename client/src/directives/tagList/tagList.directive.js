@@ -1,7 +1,7 @@
 (function() {
   'use strict'
 
-  function tagListController($scope) {
+  function tagListController($scope, $uibModal) {
     $scope.selectTag = function(tag) {
       $scope.selectedTag = tag;
       $scope.$emit('tagCountViewer:selectTag', tag);
@@ -9,6 +9,23 @@
 
     $scope.isTagSelected = function(tag) {
       return _.isEqual(tag, $scope.selectedTag);
+    };
+
+    $scope.openTagsModal = function() {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'partials/tagsModal/tagsModal.tpl.html',
+        controller: 'tagsModalController',
+        resolve: {
+          tags: function () {
+            return $scope.tags;
+          }
+        }
+      });
+
+      modalInstance.result.then(function(tag) {
+        $scope.selectTag(tag);
+      });
     };
   }
 

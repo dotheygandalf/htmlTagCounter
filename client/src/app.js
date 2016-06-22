@@ -4,7 +4,8 @@
   angular.module('htmlTagCounterApp', [
     'ui.router',
     'ui.codemirror',
-    'templates-app'
+    'templates-app',
+    'ui.bootstrap'
   ])
 
   .config(function($urlRouterProvider, $locationProvider, $urlMatcherFactoryProvider, $stateProvider) {

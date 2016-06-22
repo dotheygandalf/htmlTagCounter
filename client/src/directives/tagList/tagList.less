@@ -3,6 +3,10 @@
   overflow: auto;
   padding-right: 0;
 
+  .mobile-commands {
+    display: none;
+  }
+
   ul {
     list-style: none;
     margin: 0;
@@ -33,6 +37,36 @@
       &.selected {
         background-color: #537d48;
         color: #fff;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .tag-list {
+    height: 70px;
+
+    .mobile-commands {
+      display: block;
+      margin-top: 5px;
+
+      button {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    ul {
+      display: none;
+    }
+  }
+
+  .modal-dialog {
+    .tag-list {
+      height: 100%;
+      
+      ul {
+        display: block;
       }
     }
   }

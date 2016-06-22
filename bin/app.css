@@ -8,6 +8,11 @@
 .code-viewer .CodeMirror .selected {
   background: yellow;
 }
+@media only screen and (max-width: 767px) {
+  .code-viewer .CodeMirror {
+    height: calc(100% - 140px);
+  }
+}
 
 .tag-count-viewer {
   height: calc(100% - 80px);
@@ -48,6 +53,9 @@
   overflow: auto;
   padding-right: 0;
 }
+.tag-list .mobile-commands {
+  display: none;
+}
 .tag-list ul {
   list-style: none;
   margin: 0;
@@ -75,4 +83,26 @@
 .tag-list ul li.tag-list-item.selected {
   background-color: #537d48;
   color: #fff;
+}
+@media only screen and (max-width: 767px) {
+  .tag-list {
+    height: 70px;
+  }
+  .tag-list .mobile-commands {
+    display: block;
+    margin-top: 5px;
+  }
+  .tag-list .mobile-commands button {
+    display: block;
+    width: 100%;
+  }
+  .tag-list ul {
+    display: none;
+  }
+  .modal-dialog .tag-list {
+    height: 100%;
+  }
+  .modal-dialog .tag-list ul {
+    display: block;
+  }
 }
