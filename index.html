@@ -12,6 +12,8 @@
       .CodeMirror {
         height: calc(100% - 250px);
       }
+
+      .CodeMirror .selected {background: yellow;}
     </style>
   </head>
   <body ng-app="htmlTagCounterApp">
@@ -29,24 +31,33 @@
 
 
       <ul style="list-style:none;">
-        <li ng-repeat="tag in tags | orderBy: '-count'" style="display: inline-block; text-align: center; padding: 5px 10px;min-width:50px;">
+        <li ng-repeat="tag in tags" style="display: inline-block; text-align: center; padding: 5px 10px;min-width:50px;" ng-click="highlightTags(tag.tag)">
           <div>{{ tag.tag }}</div>
           <div>{{ tag.count }}</div>
         </li>
       </ul>
 
-      <div ui-codemirror ng-model="html" ui-codemirror-opts="editorOptions"></div>
+      <div ui-codemirror="{ onLoad : codemirrorLoaded }" ng-model="html" ui-codemirror-opts="editorOptions"></div>
 
     </div>
 
 
 
+    <script class="application-dependency" src="/bower_components/jquery/dist/jquery.js"></script>
+
+    <script>
+      jQuery.expr[':'].findExactly = function(a, i, m) {
+        return jQuery(a).text().toUpperCase() === m[3].toUpperCase();
+      };
+    </script>
     <script class="application-dependency" src="/bower_components/angular/angular.js"></script>
     <script class="application-dependency" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script class="application-dependency" src="/bower_components/lodash/dist/lodash.js"></script>
     <script class="application-dependency" src="/bower_components/codemirror/lib/codemirror.js"></script>
     <script class="application-dependency" src="/bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
 
+    <script class="application-dependency" src="/bower_components/codemirror/addon/search/search.js"></script>
+    <script class="application-dependency" src="/bower_components/codemirror/addon/search/searchcursor.js"></script>
     <script class="application-dependency" src="/bower_components/codemirror/mode/xml/xml.js"></script>
     <script class="application-dependency" src="/bower_components/codemirror/mode/javascript/javascript.js"></script>
     <script class="application-dependency" src="/bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>

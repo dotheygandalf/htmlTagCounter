@@ -10,7 +10,7 @@ angular.module('htmlTagCounterApp', [
 })
 
 .controller('mainCtrl', function($scope, $http, $timeout) {
-  $scope.url = 'http://kotaku.com/';
+  $scope.url = 'https://material.angularjs.org/latest/';
 
   $scope.editorOptions = {
     mode: 'htmlmixed',
@@ -18,6 +18,24 @@ angular.module('htmlTagCounterApp', [
     lineWrapping : false,
     lineNumbers: true
   };
+
+  $scope.codemirrorLoaded = function(_editor) {
+    $scope.editor = _editor;
+
+    $scope.editor.on('scroll', function() {
+      updateHighlights();
+    });
+  };
+
+  function updateHighlights() {
+    $('.cm-tag:findExactly(\'' + $scope.tag + '\')').addClass('selected');
+  }
+
+  $scope.highlightTags = function(tag) {
+    $scope.tag = tag;
+    $('.cm-tag').removeClass('selected');
+    $('.cm-tag:findExactly(\'' + tag + '\')').addClass('selected');
+  }
 
   $scope.getTagCount = function() {
     // validate url
@@ -32,12 +50,7 @@ angular.module('htmlTagCounterApp', [
       url: $scope.url
     }
   }).then(function(response) {
-    $scope.tags = _.map(response.data.elements, function(value, key) {
-      return {
-        tag: key,
-        count: value
-      };
-    });
+    $scope.tags = response.data.elements;
 
     $scope.html = response.data.html.trim();
 

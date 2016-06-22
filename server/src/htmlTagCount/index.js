@@ -1,6 +1,7 @@
 var jsdom = require("jsdom");
 var q = require('q');
 var beautify = require('js-beautify').html;
+var _ = require('lodash');
 
 module.exports = {
   getTags: getTags
@@ -19,6 +20,28 @@ function getTags(url) {
 
       var $ = require('jquery')(window);
       getChildNodes($, window.document.documentElement);
+
+      elements = _.map(elements, function(value, key) {
+        return {
+          tag: key,
+          count: value
+        };
+      }).sort(function(a, b) {
+        if(a.count > b.count) {
+          return 1;
+        } else if(a.count < b.count) {
+          return -1;
+        } else {
+          if(a.tag.toLowerCase() > b.tag.toLowerCase()) {
+            return -1;
+          } else if(a.tag.toLowerCase() < b.tag.toLowerCase()) {
+            return 1;
+          }
+        }
+        return 0;
+      }).reverse();
+
+
       return deferred.resolve({
         elements: elements,
         html: beautify(window.document.documentElement.outerHTML, {
