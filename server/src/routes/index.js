@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.use('/api/v1/tags', require('../api/tags'));
   app.get('/foo', function(req, res) {
     res.header("Content-Type", "text/html");
-    res.send('<!doctype><html><ul></li></html>');
+    res.send('<html><div>foo<strong>bar</strong></div></html>');
   })
 
   // All undefined asset or api routes should return a 404

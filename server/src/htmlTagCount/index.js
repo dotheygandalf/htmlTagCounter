@@ -40,8 +40,17 @@ function getTags(html) {
         }
         return 0;
       }).reverse();
-
-      var html = window.document.documentElement.outerHTML;
+      var node = window.document.doctype;
+      var doctype = '';
+      if(node) {
+        doctype = "<!DOCTYPE "
+           + node.name
+           + (node.publicId ? ' PUBLIC "' + node.publicId + '"' : '')
+           + (!node.publicId && node.systemId ? ' SYSTEM' : '')
+           + (node.systemId ? ' "' + node.systemId + '"' : '')
+           + '>';
+       }
+      var html = doctype + window.document.documentElement.outerHTML;
 
       window.close();
 

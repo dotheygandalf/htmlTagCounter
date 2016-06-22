@@ -8,7 +8,7 @@ exports.index = function(req, res) {
     if(error) {
       return console.log(error);
     }
-    if(/text\/html;/.test(response.headers['content-type'])) {
+    if(/text\/html/.test(response.headers['content-type'])) {
       htmlTagCount.getTags(body).then(function(tags) {
         return res.json(tags);
       }, function(error) {
