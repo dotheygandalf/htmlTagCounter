@@ -1,6 +1,6 @@
 <div class="tag-list">
   <div class="mobile-commands">
-    <button class="btn btn-default" ng-click="openTagsModal()">View Tags</button>
+    <button class="btn btn-default" ng-click="openTagsModal()">{{ formattedTag ? formattedTag : 'Select a tag' }}</button>
   </div>
   <ul>
     <li ng-repeat="item in tags" class="tag-list-item" ng-click="selectTag(item.tag)" ng-class="{ selected: isTagSelected(item.tag) }">

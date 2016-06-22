@@ -48,7 +48,7 @@ angular.module("directives/tagList/tagList.tpl.html", []).run(["$templateCache",
   $templateCache.put("directives/tagList/tagList.tpl.html",
     "<div class=\"tag-list\">\n" +
     "  <div class=\"mobile-commands\">\n" +
-    "    <button class=\"btn btn-default\" ng-click=\"openTagsModal()\">View Tags</button>\n" +
+    "    <button class=\"btn btn-default\" ng-click=\"openTagsModal()\">{{ formattedTag ? formattedTag : 'Select a tag' }}</button>\n" +
     "  </div>\n" +
     "  <ul>\n" +
     "    <li ng-repeat=\"item in tags\" class=\"tag-list-item\" ng-click=\"selectTag(item.tag)\" ng-class=\"{ selected: isTagSelected(item.tag) }\">\n" +

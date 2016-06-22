@@ -1,9 +1,10 @@
 (function() {
   'use strict'
 
-  function tagListController($scope, $uibModal) {
+  function tagListController($scope, $uibModal, $filter) {
     $scope.selectTag = function(tag) {
       $scope.selectedTag = tag;
+      $scope.formattedTag = $filter('formatTag')(tag);
       $scope.$emit('tagCountViewer:selectTag', tag);
     };
 
