@@ -11,7 +11,8 @@
       mode: 'htmlmixed',
       height: '600px',
       lineWrapping : false,
-      lineNumbers: true
+      lineNumbers: true,
+      readOnly: true
     };
 
     $scope.codemirrorLoaded = function(_editor) {
@@ -28,6 +29,11 @@
 
     $scope.highlightTags = function(tag) {
       $scope.tag = tag;
+
+      var cursor = $scope.editor.getSearchCursor(tag.toLowerCase(), null);
+      if(cursor && cursor.findNext()) {
+        $scope.editor.setSelection(cursor.pos.from, cursor.pos.to);
+      }
       $('.cm-tag').removeClass('selected');
       $('.cm-tag:findExactly(\'' + tag + '\')').addClass('selected');
     };
