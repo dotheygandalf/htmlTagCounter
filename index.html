@@ -10,13 +10,22 @@
 
     <style>
       .CodeMirror {
-        height: calc(100% - 200px);
+        height: calc(100% - 250px);
       }
     </style>
   </head>
   <body ng-app="htmlTagCounterApp">
     <div class="container" ng-controller="mainCtrl">
-      <h1>Hello World!</h1>
+      <h1>Tag Counter</h1>
+
+      <form>
+        <div class="input-group">
+          <input class="form-control" ng-model="url" type="url" /> 
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="getTagCount()">Go!</button>
+          </span>
+        </div>
+      </form>
 
 
       <ul style="list-style:none;">

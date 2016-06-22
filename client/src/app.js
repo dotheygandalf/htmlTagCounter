@@ -10,6 +10,7 @@ angular.module('htmlTagCounterApp', [
 })
 
 .controller('mainCtrl', function($scope, $http, $timeout) {
+  $scope.url = 'http://kotaku.com/';
 
   $scope.editorOptions = {
     mode: 'htmlmixed',
@@ -18,8 +19,19 @@ angular.module('htmlTagCounterApp', [
     lineNumbers: true
   };
 
+  $scope.getTagCount = function() {
+    // validate url
+    if(true) {
+      // get tags
+    }
+  };
 
-  $http.get('/api/v1/tags').then(function(response) {
+
+  $http.get('/api/v1/tags', {
+    params: {
+      url: $scope.url
+    }
+  }).then(function(response) {
     $scope.tags = _.map(response.data.elements, function(value, key) {
       return {
         tag: key,
