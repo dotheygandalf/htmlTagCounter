@@ -1,57 +1,72 @@
 .tag-list {
-  height: ~"calc(100% - 80px)";
-  overflow: auto;
+  height: 100%;
   padding-right: 0;
 
   .mobile-commands {
     display: none;
   }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .tag-wrapper {
+    height: 100%;
+
+    .input-group {
+      margin-bottom: 4px;
+
+      input {
+        border-radius: 0;
+        border-color: #e6e6e6;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: ~"calc(100% - 119px)";
+      overflow-y: auto;
 
 
-    li.tag-list-item {
-      text-align: center;
-      padding: 6px 10px;
-      border: 1px solid #e6e6e6;
-      border-top: none;
-      cursor: pointer;
-      color: #5a5a5a;
-
-      &.dismiss-modal-button {
+      li.tag-list-item {
         text-align: center;
-        padding: 15px 0px;
-        border-bottom: 1px solid #e6e6e6;
+        padding: 6px 10px;
+        border: 1px solid #e6e6e6;
+        border-top: none;
+        cursor: pointer;
+        color: #5a5a5a;
+
+        &.dismiss-modal-button {
+          text-align: center;
+          padding: 15px 0px;
+          border-bottom: 1px solid #e6e6e6;
+
+          &:hover {
+            background-color: #c7c7c7;
+            color: #fff;
+          }
+        }
+
+        .item-label {
+          font-weight: bold;
+          margin-bottom: 2px;
+        }
+
+        &:first-child {
+          border-top: 1px solid #e6e6e6;
+        }
 
         &:hover {
           background-color: #c7c7c7;
           color: #fff;
         }
-      }
 
-      .item-label {
-        font-weight: bold;
-        margin-bottom: 2px;
-      }
-
-      &:first-child {
-        border-top: 1px solid #e6e6e6;
-      }
-
-      &:hover {
-        background-color: #c7c7c7;
-        color: #fff;
-      }
-
-      &.selected {
-        background-color: #537d48;
-        color: #fff;
+        &.selected {
+          background-color: #537d48;
+          color: #fff;
+        }
       }
     }
   }
+
 }
 
 @media only screen and (max-width : 767px) {
@@ -68,7 +83,7 @@
       }
     }
 
-    ul {
+    .tag-wrapper {
       display: none;
     }
   }
@@ -77,7 +92,7 @@
     .tag-list {
       height: 100%;
 
-      ul {
+      .tag-wrapper {
         display: block;
       }
     }

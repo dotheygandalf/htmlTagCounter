@@ -2,10 +2,18 @@
   <div class="mobile-commands">
     <button class="btn btn-default" ng-click="openTagsModal()">{{ formattedTag ? formattedTag : 'Select a tag' }}</button>
   </div>
-  <ul>
-    <li ng-repeat="item in tags" class="tag-list-item" ng-click="selectTag(item.tag)" ng-class="{ selected: isTagSelected(item.tag) }">
-      <div class="item-label">{{ item.tag | formatTag }}</div>
-      <div class="item-value">{{ item.count }} elements</div>
-    </li>
-  </ul>
+  <div class="tag-wrapper">
+    <div class="input-group">
+      <input type="text" ng-model="tagFilter" class="form-control" placeholder="Search elements"/>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="tagFilter = ''">Clear</button>
+      </span>
+    </div>
+    <ul>
+      <li ng-repeat="item in tags | filter: { tag: tagFilter }" class="tag-list-item" ng-click="selectTag(item.tag)" ng-class="{ selected: isTagSelected(item.tag) }">
+        <div class="item-label">{{ item.tag | formatTag }}</div>
+        <div class="item-value">{{ item.count }} elements</div>
+      </li>
+    </ul>
+  </div>
 </div>

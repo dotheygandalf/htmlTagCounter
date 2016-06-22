@@ -50,29 +50,39 @@ angular.module("directives/tagList/tagList.tpl.html", []).run(["$templateCache",
     "  <div class=\"mobile-commands\">\n" +
     "    <button class=\"btn btn-default\" ng-click=\"openTagsModal()\">{{ formattedTag ? formattedTag : 'Select a tag' }}</button>\n" +
     "  </div>\n" +
-    "  <ul>\n" +
-    "    <li ng-repeat=\"item in tags\" class=\"tag-list-item\" ng-click=\"selectTag(item.tag)\" ng-class=\"{ selected: isTagSelected(item.tag) }\">\n" +
-    "      <div class=\"item-label\">{{ item.tag | formatTag }}</div>\n" +
-    "      <div class=\"item-value\">{{ item.count }} elements</div>\n" +
-    "    </li>\n" +
-    "  </ul>\n" +
+    "  <div class=\"tag-wrapper\">\n" +
+    "    <div class=\"input-group\">\n" +
+    "      <input type=\"text\" ng-model=\"tagFilter\" class=\"form-control\" placeholder=\"Search elements\">\n" +
+    "      <span class=\"input-group-btn\">\n" +
+    "        <button class=\"btn btn-default\" type=\"button\" ng-click=\"tagFilter = ''\">Clear</button>\n" +
+    "      </span>\n" +
+    "    </div>\n" +
+    "    <ul>\n" +
+    "      <li ng-repeat=\"item in tags | filter: { tag: tagFilter }\" class=\"tag-list-item\" ng-click=\"selectTag(item.tag)\" ng-class=\"{ selected: isTagSelected(item.tag) }\">\n" +
+    "        <div class=\"item-label\">{{ item.tag | formatTag }}</div>\n" +
+    "        <div class=\"item-value\">{{ item.count }} elements</div>\n" +
+    "      </li>\n" +
+    "    </ul>\n" +
+    "  </div>\n" +
     "</div>");
 }]);
 
 angular.module("partials/tagsModal/tagsModal.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("partials/tagsModal/tagsModal.tpl.html",
     "<div class=\"tag-list\">\n" +
-    "  <ul>\n" +
-    "    <li ng-click=\"$dismiss()\" class=\"tag-list-item dismiss-modal-button\" ng-if=\"tags.length > 10\">\n" +
-    "      Close\n" +
-    "    </li>\n" +
-    "    <li ng-repeat=\"item in tags\" class=\"tag-list-item\" ng-click=\"$close(item.tag)\" ng-class=\"{ selected: isTagSelected(item.tag) }\">\n" +
-    "      <div class=\"item-label\">{{ item.tag | formatTag }}</div>\n" +
-    "      <div class=\"item-value\">{{ item.count }} elements</div>\n" +
-    "    </li>\n" +
-    "    <li ng-click=\"$dismiss()\" class=\"tag-list-item dismiss-modal-button\">\n" +
-    "      Close\n" +
-    "    </li>\n" +
-    "  </ul>\n" +
+    "  <div class=\"tag-wrapper\">\n" +
+    "    <ul>\n" +
+    "      <li ng-click=\"$dismiss()\" class=\"tag-list-item dismiss-modal-button\" ng-if=\"tags.length > 10\">\n" +
+    "        Close\n" +
+    "      </li>\n" +
+    "      <li ng-repeat=\"item in tags\" class=\"tag-list-item\" ng-click=\"$close(item.tag)\" ng-class=\"{ selected: isTagSelected(item.tag) }\">\n" +
+    "        <div class=\"item-label\">{{ item.tag | formatTag }}</div>\n" +
+    "        <div class=\"item-value\">{{ item.count }} elements</div>\n" +
+    "      </li>\n" +
+    "      <li ng-click=\"$dismiss()\" class=\"tag-list-item dismiss-modal-button\">\n" +
+    "        Close\n" +
+    "      </li>\n" +
+    "    </ul>\n" +
+    "  </div>\n" +
     "</div>");
 }]);
