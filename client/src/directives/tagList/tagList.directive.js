@@ -13,6 +13,14 @@
   }
 
   angular.module('htmlTagCounterApp')
+  .filter('formatTag', function() {
+    return function(value) {
+      if(_.isString(value)) {
+        return '<' + value.toLowerCase() + '>';
+      }
+      return value;
+    };
+  })
   .controller('tagListController', tagListController)
   .directive('tagList', function() {
     return {
