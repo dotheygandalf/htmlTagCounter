@@ -4,6 +4,7 @@
 .code-viewer .CodeMirror {
   height: calc(100% - 80px);
   width: 100%;
+  font-size: 12px;
 }
 .code-viewer .CodeMirror .selected {
   background: yellow;
