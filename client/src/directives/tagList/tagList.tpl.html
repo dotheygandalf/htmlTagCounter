@@ -1,0 +1,8 @@
+<div class="tag-list">
+  <ul>
+    <li ng-repeat="item in tags" class="tag-list-item" ng-click="selectTag(item.tag)" ng-class="{ selected: isTagSelected(item.tag) }">
+      <div>{{ item.tag }}</div>
+      <div>{{ item.count }}</div>
+    </li>
+  </ul>
+</div>

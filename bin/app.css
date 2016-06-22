@@ -1,0 +1,43 @@
+.code-viewer {
+  padding: 0;
+}
+.code-viewer .CodeMirror {
+  height: calc(100% - 80px);
+  width: 100%;
+}
+.code-viewer .CodeMirror .selected {
+  background: yellow;
+}
+
+.tag-count-viewer {
+  height: calc(100% - 80px);
+  overflow: hidden;
+}
+
+.tag-list {
+  height: calc(100% - 80px);
+  overflow: auto;
+}
+.tag-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tag-list ul li.tag-list-item {
+  text-align: center;
+  padding: 4px 10px;
+  border: 1px solid #e6e6e6;
+  border-top: none;
+  cursor: pointer;
+}
+.tag-list ul li.tag-list-item:first-child {
+  border-top: 1px solid #e6e6e6;
+}
+.tag-list ul li.tag-list-item:hover {
+  background-color: #c7c7c7;
+  color: #fff;
+}
+.tag-list ul li.tag-list-item.selected {
+  background-color: #537d48;
+  color: #fff;
+}

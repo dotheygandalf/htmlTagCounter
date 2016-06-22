@@ -1,0 +1,22 @@
+<div class="tag-count-viewer">
+  <div class="row">
+    <div class="col-lg-12">
+      <form novalidate name="urlForm">
+        <label>Get Source from URL</label>
+        <div class="input-group">
+          <input class="form-control" name="url" ng-model="url" type="url" />
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="getTagCount()">Go!</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <code-viewer content="html" class="col-lg-10"></code-viewer>
+      <tag-list tags="tags" ng-if="tags" class="col-lg-2"></tag-list>
+    </div>
+  </div>
+</div>

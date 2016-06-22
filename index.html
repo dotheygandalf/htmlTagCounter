@@ -7,37 +7,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="bin/app.css">
 
-    <style>
-      .CodeMirror {
-        height: calc(100% - 250px);
-      }
-
-      .CodeMirror .selected {background: yellow;}
-    </style>
   </head>
   <body ng-app="htmlTagCounterApp">
-    <div class="container" ng-controller="mainCtrl">
+    <div class="container" style="height: 100%;">
       <h1>Tag Counter</h1>
 
-      <form>
-        <div class="input-group">
-          <input class="form-control" ng-model="url" type="url" /> 
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="getTagCount()">Go!</button>
-          </span>
-        </div>
-      </form>
-
-
-      <ul style="list-style:none;">
-        <li ng-repeat="tag in tags" style="display: inline-block; text-align: center; padding: 5px 10px;min-width:50px;" ng-click="highlightTags(tag.tag)">
-          <div>{{ tag.tag }}</div>
-          <div>{{ tag.count }}</div>
-        </li>
-      </ul>
-
-      <div ui-codemirror="{ onLoad : codemirrorLoaded }" ng-model="html" ui-codemirror-opts="editorOptions"></div>
+      <tag-count-viewer tags="tags" content="html"></tag-count-viewer>
 
     </div>
 
@@ -62,6 +39,12 @@
     <script class="application-dependency" src="/bower_components/codemirror/mode/javascript/javascript.js"></script>
     <script class="application-dependency" src="/bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 
+    <script class="application-tempaltes" src="./bin/app-templates.js"></script>
+
     <script class="application-src" src="./client/src/app.js"></script>
+
+    <script class="application-src" src="./client/src/directives/tagList/tagList.directive.js"></script>
+    <script class="application-src" src="./client/src/directives/codeViewer/codeViewer.directive.js"></script>
+    <script class="application-src" src="./client/src/directives/tagCountViewer/tagCountViewer.directive.js"></script>
   </body>
 </html>
