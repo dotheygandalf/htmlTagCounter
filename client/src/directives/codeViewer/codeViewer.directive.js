@@ -30,7 +30,7 @@
     $scope.highlightTags = function(tag) {
       $scope.tag = tag;
 
-      var cursor = $scope.editor.getSearchCursor(tag.toLowerCase(), null);
+      var cursor = $scope.editor.getSearchCursor('<' + tag, null, true);
       if(cursor && cursor.findNext()) {
         $scope.editor.setSelection(cursor.pos.from, cursor.pos.to);
       }
