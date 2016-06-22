@@ -13,6 +13,35 @@
   height: calc(100% - 80px);
   overflow: hidden;
 }
+.tag-count-viewer form input.ng-dirty.ng-invalid,
+.tag-count-viewer form input.ng-dirty.ng-invalid-url,
+.tag-count-viewer form input.ng-dirty.ng-invalid-required {
+  border-color: #d54d4d;
+}
+.tag-count-viewer form input.ng-dirty.ng-invalid:focus,
+.tag-count-viewer form input.ng-dirty.ng-invalid-url:focus,
+.tag-count-viewer form input.ng-dirty.ng-invalid-required:focus {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(213, 77, 77, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(213, 77, 77, 0.6);
+}
+.tag-count-viewer form input.ng-dirty.ng-valid {
+  border-color: #29ad29;
+}
+.tag-count-viewer form input.ng-dirty.ng-valid:focus {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(41, 173, 41, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(41, 173, 41, 0.6);
+}
+.tag-count-viewer .spinner {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.tag-count-viewer .spinner i {
+  color: #a9a9a9;
+  position: relative;
+  top: calc(50% - 150px);
+  font-size: 100px;
+}
 
 .tag-list {
   height: calc(100% - 80px);

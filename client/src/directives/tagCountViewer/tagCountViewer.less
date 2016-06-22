@@ -1,4 +1,42 @@
 .tag-count-viewer {
   height: ~"calc(100% - 80px)";
   overflow: hidden;
+
+  form {
+    input {
+      &.ng-dirty {
+
+        &.ng-invalid, &.ng-invalid-url, &.ng-invalid-required {
+          border-color: #d54d4d;
+
+          &:focus {
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(213, 77, 77,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(213, 77, 77,.6);
+          }
+        }
+
+        &.ng-valid {
+          border-color: #29ad29;
+
+          &:focus {
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(41, 173, 41,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(41, 173, 41,.6);
+          }
+        }
+      }
+    }
+  }
+
+  .spinner {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    i {
+      color: #a9a9a9;
+      position: relative;
+      top: ~"calc(50% - 150px)";
+      font-size: 100px;
+    }
+  }
 }
