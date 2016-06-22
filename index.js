@@ -6,9 +6,10 @@ app.set('appPath', __dirname);
 app.use('/client', express.static('client'));
 app.use('/bower_components', express.static('bower_components'));
 app.use('/bin', express.static('bin'));
+app.use('/public', express.static('public'));
 
 require('./server/src/routes')(app);
 
-app.listen(8080, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(3000, function () {
+  console.log('App listening on port 3000!');
 });
