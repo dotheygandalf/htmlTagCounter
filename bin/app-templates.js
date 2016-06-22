@@ -35,7 +35,7 @@ angular.module("directives/tagCountViewer/tagCountViewer.tpl.html", []).run(["$t
     "      <h4>{{ error.message }}</h4>\n" +
     "    </div>\n" +
     "\n" +
-    "    <div ng-if=\"isLoading\">\n" +
+    "    <div class=\"spin-wrapper\" ng-if=\"isLoading\">\n" +
     "      <div class=\"spinner\">\n" +
     "        <i class=\"fa fa-circle-o-notch fa-spin\" aria-hidden=\"true\"></i>\n" +
     "      </div>\n" +
