@@ -1,28 +1,28 @@
-// Run some jQuery on a html fragment
 var jsdom = require("jsdom");
 
 jsdom.env(
-  '<html><head></head><body><ul><li></li><li></li></ul></body></html>',
-  ["http://code.jquery.com/jquery.js"],
+  'http://api.jquery.com/jquery.each/',
   function (err, window) {
-    var $ = window.jQuery;
-    // console.log($('html'));
-    // console.log($('html').children().each(function(item, moo) {console.log(item, $(moo).prop('nodeName'))}));
-    // console.log("contents of a.the-link:", window.$("a.the-link").text());
-
+    var $ = require('jquery')(window);
     getChildNodes($, 'html');
+    console.log(elements);
   }
 );
 
+var elements = {};
 
 function getChildNodes($, element) {
   $element = $(element);
-  console.log($element.prop('nodeName'));
+  var elementName = $element.prop('nodeName');
+  var currentCount = elements[elementName] || 0;
+  elements[elementName] = currentCount + 1;
 
   $.each($element.children(), function(index, childElement) {
     var $childElement = $(childElement);
 
-    console.log($childElement.prop('nodeName'));
+    var childElementName = $childElement.prop('nodeName');
+    var currentCount = elements[childElementName] || 0;
+    elements[childElementName] = currentCount + 1;
 
     var children = $childElement.children();
     if(children.length > 0) {
