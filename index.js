@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
 
+app.set('appPath', __dirname);
+
+app.use('/client', express.static('client'));
+app.use('/bower_components', express.static('bower_components'));
+
 require('./server/src/routes')(app);
 
 app.listen(3000, function () {
