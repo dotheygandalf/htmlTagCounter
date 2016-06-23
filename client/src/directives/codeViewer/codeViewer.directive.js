@@ -10,7 +10,7 @@
     $scope.editorOptions = {
       mode: 'htmlmixed',
       height: '600px',
-      lineWrapping : false,
+      lineWrapping : true,
       lineNumbers: true,
       readOnly: true
     };

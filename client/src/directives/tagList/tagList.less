@@ -24,6 +24,8 @@
       padding: 0;
       height: ~"calc(100% - 119px)";
       overflow-y: auto;
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
 
 
       li.tag-list-item {
@@ -33,6 +35,14 @@
         border-top: none;
         cursor: pointer;
         color: #5a5a5a;
+
+        &:first-child {
+          border-top: 0;
+        }
+
+        &:last-child {
+          border-bottom: 0;
+        }
 
         &.dismiss-modal-button {
           text-align: center;
@@ -50,10 +60,6 @@
           margin-bottom: 2px;
         }
 
-        &:first-child {
-          border-top: 1px solid #e6e6e6;
-        }
-
         &:hover {
           background-color: #c7c7c7;
           color: #fff;
@@ -68,7 +74,15 @@
       li.no-items-message {
         text-align: center;
         margin-top: 10px;
-        padding: 0 30px;
+
+        strong {
+          max-width: 200px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          display: block;
+          margin: auto;
+        }
       }
     }
   }

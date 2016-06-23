@@ -6,7 +6,7 @@
       </li>
       <li ng-repeat="item in tags" class="tag-list-item" ng-click="$close(item.tag)" ng-class="{ selected: isTagSelected(item.tag) }">
         <div class="item-label">{{ item.tag | formatTag }}</div>
-        <div class="item-value">{{ item.count }} elements</div>
+        <div class="item-value">{{ item.count }} {{ item.count === 1 ? 'element' : 'elements' }}</div>
       </li>
       <li ng-click="$dismiss()" class="tag-list-item dismiss-modal-button">
         Close
