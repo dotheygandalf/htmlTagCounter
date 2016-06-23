@@ -6,7 +6,10 @@ exports.index = function(req, res) {
 
   request(url, function(error, response, body) {
     if(error) {
-      return console.log(error);
+      return res.status(400).json({
+        status: 400,
+        message: 'There was a problem with your request.'
+      });
     }
     if(/text\/html/.test(response.headers['content-type'])) {
       htmlTagCount.getTags(body).then(function(tags) {
