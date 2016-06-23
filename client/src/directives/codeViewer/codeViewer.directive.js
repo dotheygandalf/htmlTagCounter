@@ -33,10 +33,10 @@
       var closedTagCursor = $scope.editor.getSearchCursor('<' + tag + '>', null, true);
       var openTagCursor = $scope.editor.getSearchCursor('<' + tag + ' ', null, true);
 
-      if(closedTagCursor && closedTagCursor.findNext()) {
-        $scope.editor.setSelection(closedTagCursor.pos.from, closedTagCursor.pos.to);
-      } else if(openTagCursor && openTagCursor.findNext()) {
+      if(openTagCursor && openTagCursor.findNext()) {
         $scope.editor.setSelection(openTagCursor.pos.from, openTagCursor.pos.to);
+      } else if(closedTagCursor && closedTagCursor.findNext()) {
+        $scope.editor.setSelection(closedTagCursor.pos.from, closedTagCursor.pos.to);
       }
       $('.cm-tag').removeClass('selected');
       $('.cm-tag:findExactly(\'' + tag + '\')').addClass('selected');
