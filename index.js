@@ -11,5 +11,5 @@ app.use('/public', express.static('public'));
 require('./server/src/routes')(app);
 
 app.listen(8080, function () {
-  console.log('App listening on port 3000!');
+  console.log('App listening on port 8080!');
 });

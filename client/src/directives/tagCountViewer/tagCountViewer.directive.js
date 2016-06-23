@@ -43,7 +43,7 @@
       $scope.$broadcast('selectTag', tag);
     });
 
-    $scope.url = 'https://material.angularjs.org/latest/';
+    $scope.url = 'https://slack.com/';
     $scope.demo($scope.url);
   }
 
