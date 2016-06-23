@@ -10,6 +10,8 @@ This is a small webapp that allows users to view HTML source code for websites. 
 * Error handling when requests fail.
 * HTML source prettification on the server side using the js-beautify library.
 * Syntax highlihgting using the CodeMirror library.
+
+## Notes
 * Hosted on Amazon EC2
 
 ## Deployment Prereqs
