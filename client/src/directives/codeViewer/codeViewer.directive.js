@@ -30,9 +30,13 @@
     $scope.highlightTags = function(tag) {
       $scope.tag = tag;
 
-      var cursor = $scope.editor.getSearchCursor('<' + tag, null, true);
-      if(cursor && cursor.findNext()) {
-        $scope.editor.setSelection(cursor.pos.from, cursor.pos.to);
+      var closedTagCursor = $scope.editor.getSearchCursor('<' + tag + '>', null, true);
+      var openTagCursor = $scope.editor.getSearchCursor('<' + tag + ' ', null, true);
+
+      if(closedTagCursor && closedTagCursor.findNext()) {
+        $scope.editor.setSelection(closedTagCursor.pos.from, closedTagCursor.pos.to);
+      } else if(openTagCursor && openTagCursor.findNext()) {
+        $scope.editor.setSelection(openTagCursor.pos.from, openTagCursor.pos.to);
       }
       $('.cm-tag').removeClass('selected');
       $('.cm-tag:findExactly(\'' + tag + '\')').addClass('selected');
