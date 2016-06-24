@@ -60,7 +60,8 @@ function getTags(html) {
           'indent_size': 2,
           'preserve-newlines': true,
           'max-preserve-newlines': 1,
-          'indent-inner-html': true
+          'indent-inner-html': true,
+          unformatted: []
         })
       });
     }
